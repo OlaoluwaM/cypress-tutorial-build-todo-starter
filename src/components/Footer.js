@@ -2,10 +2,11 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 export default function Footer({ remainingTodos }) {
+  const text = remainingTodos > 1 ? "todos left" : "todo left";
   return (
     <footer className="footer">
       <span className="todo-count">
-        <strong>{remainingTodos}</strong> todos left
+        <strong>{remainingTodos}</strong> {text}
       </span>
       <ul className="filters">
         <li>

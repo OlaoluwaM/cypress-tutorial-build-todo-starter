@@ -1,5 +1,10 @@
 "use strict";
 
+export const filterTodos = (filter, todos) =>
+  filter
+    ? todos.filter(({ isComplete }) => isComplete === (filter === "completed"))
+    : todos;
+
 export function todoReducer(state, action) {
   switch (action.type) {
     case "New Item":
@@ -13,7 +18,14 @@ export function todoReducer(state, action) {
         ...state,
         currentTodo: action.todo,
       };
+
     case "Remove Item":
+      return {
+        ...state,
+        list: action.list,
+      };
+
+    case "Update Items":
       return {
         ...state,
         list: action.list,
