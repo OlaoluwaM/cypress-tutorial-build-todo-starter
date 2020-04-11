@@ -3,8 +3,8 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import TodoForm from "./TodoForm";
 import TodoList from "./TodoList";
 import Footer from "./Footer";
-import { saveTodo, loadTodos } from "../lib/service";
 import { todoReducer } from "../lib/utils";
+import { saveTodo, loadTodos, destroyTodo } from "../lib/service";
 
 export default function TodoApp() {
   const [todos, dispatch] = React.useReducer(todoReducer, {
@@ -42,10 +42,17 @@ export default function TodoApp() {
     }
   };
 
+  const handleDelete = async (id) => {
+    await destroyTodo(id);
+    const newList = list.filter(({ id: itmId }) => itmId !== id);
+    dispatch({ type: "Remove Item", list: newList });
+  };
+
   const setCurrentTodo = (itm) => {
     dispatch({ type: "Adding Todo", todo: itm });
   };
 
+  const remainingItems = list.filter((t) => !t.isComplete).length;
   return (
     <Router>
       <div>
@@ -59,9 +66,9 @@ export default function TodoApp() {
           />
         </header>
         <section className="main">
-          <TodoList todos={list} />
+          <TodoList todos={list} handleDelete={handleDelete} />
         </section>
-        <Footer />
+        <Footer remainingTodos={remainingItems} />
       </div>
     </Router>
   );

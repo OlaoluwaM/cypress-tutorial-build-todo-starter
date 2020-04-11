@@ -13,6 +13,11 @@ export function todoReducer(state, action) {
         ...state,
         currentTodo: action.todo,
       };
+    case "Remove Item":
+      return {
+        ...state,
+        list: action.list,
+      };
 
     case "Reset Current Todo":
       return {
