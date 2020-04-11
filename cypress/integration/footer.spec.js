@@ -24,10 +24,8 @@ describe("Footer", () => {
         { link: "Completed", expectedLength: 1 },
         { link: "All", expectedLength: 4 },
       ];
-
-      filters.forEach(({ link, expectedLength }) => {
+      cy.wrap(filters).each(({ link, expectedLength }) => {
         cy.contains(link).click();
-
         cy.get(".todo-list li").should("have.length", expectedLength);
       });
     });

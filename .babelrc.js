@@ -1,5 +1,6 @@
 module.exports = (api) => {
   const isDevelopment = api.env() === "development";
+
   return {
     presets: [
       ["@babel/preset-env", { modules: isDevelopment ? "commonjs" : false }],
