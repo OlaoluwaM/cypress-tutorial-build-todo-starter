@@ -13,8 +13,6 @@ export default function TodoApp() {
     error: false,
   });
   const { list, currentTodo, error } = todos;
-  const match = useRouteMatch;
-  console.log(match);
 
   React.useEffect(() => {
     (async () => {

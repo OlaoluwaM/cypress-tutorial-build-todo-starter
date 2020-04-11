@@ -1,1 +1,19 @@
-{}
+{
+  "todos": [
+    {
+      "name": "Fuck some hoes",
+      "isComplete": false,
+      "id": 1
+    },
+    {
+      "name": "Kick ass",
+      "isComplete": false,
+      "id": 2
+    },
+    {
+      "name": "Sleep",
+      "isComplete": false,
+      "id": 3
+    }
+  ]
+}
