@@ -18,9 +18,9 @@ const TodoItem = ({ name, isComplete, id, destroy, update }) => (
 export default function TodoList({ todos, handleDelete, handleToggle }) {
   return (
     <ul className="todo-list">
-      {todos.map((todo, ind) => (
+      {todos.map((todo) => (
         <TodoItem
-          key={ind}
+          key={todo.id}
           {...todo}
           destroy={handleDelete}
           update={handleToggle}

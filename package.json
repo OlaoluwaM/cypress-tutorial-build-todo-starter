@@ -8,7 +8,8 @@
     "watch:dev": "webpack --watch --env.NODE_ENV=development",
     "serve": "json-server db.json",
     "dev": "npm-run-all --parallel serve watch:dev",
-    "cy:open": "cypress open"
+    "cy:open": "cypress open",
+    "cy:run": "cypress run"
   },
   "keywords": [],
   "author": "",

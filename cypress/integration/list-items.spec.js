@@ -34,7 +34,7 @@ describe("list items", () => {
     cy.get("@list").should("have.length", 3);
   });
 
-  it.only("Mark an incomplete item as complete", () => {
+  it("Mark an incomplete item as complete", () => {
     cy.fixture("todos").then((todos) => {
       const target = todos[0];
       cy.route(
